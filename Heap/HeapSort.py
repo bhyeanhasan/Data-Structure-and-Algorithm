@@ -15,7 +15,7 @@ def Heap(arr, n, i):
 
 
 def deleteRoot(arr, n):
-    arr[0] ,arr[n-1]= arr[n-1],arr[0]
+    arr[0], arr[n - 1] = arr[n - 1], arr[0]
     n = n - 1
     Heap(arr, n, 0)
 
@@ -26,7 +26,12 @@ def printArray(arr, n):
     print()
 
 
-heaparry = [10, 5, 3, 2, 4]
+heaparry = [500, 10, 5, 3, 2, 4, 100]
 n = len(heaparry)
-deleteRoot(heaparry, n)
-printArray(heaparry, n-1)
+count = n
+
+while count > 0:
+    deleteRoot(heaparry, count)
+    count -= 1
+
+printArray(heaparry, n)
