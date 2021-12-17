@@ -51,19 +51,33 @@ public:
         cout<<endl;
     }
 
-    void delete_node(int key)
+    void delete_node(int loc)
     {
         Node *ptr = head;
-        Node *entry = new Node(key);
+        Node *parent;
 
-        while(ptr != NULL)
+        for(int i=1;i<loc;i++)
         {
-            if(ptr.data == key)
-            {
-
-            }
+            parent = ptr;
             ptr = ptr->next;
         }
+        parent->next = ptr->next;
+
+    }
+
+    void add_after(int loc,int key)
+    {
+        Node *ptr = head;
+        Node *new_node = new Node(key);
+        Node *parent;
+
+        for(int i=1;i<loc;i++)
+        {
+            parent = ptr;
+            ptr = ptr->next;
+        }
+        parent->next = new_node;
+        new_node->next = ptr;
 
     }
 
@@ -84,5 +98,9 @@ int main()
         ll.add_node(val);
     }
 
+    ll.show();
+    ll.delete_node(3);
+    ll.show();
+    ll.add_after(3,100);
     ll.show();
 }
