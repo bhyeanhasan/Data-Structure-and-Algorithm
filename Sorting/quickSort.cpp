@@ -1,19 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void selectionSort(int arr[],int n)
+void quickSort(int arr[],int n)
 {
-    for(int i=0;i<n;i++)
+    for(int i=1;i<n;i++)
     {
-        for(int j=i+1;j<n-1;j++)
+        int key = arr[i];
+        int j = i-1;
+
+        while(arr[j]>key && j>=0)
         {
-            if(arr[j]<arr[i])
-            {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
+            arr[j+1] = arr[j];
+            j = j-1;
         }
+
+        arr[j+1] = key;
     }
 }
 
@@ -41,8 +42,9 @@ int main()
     }
     show(arr,n);
 
-    selectionSort(arr,n);
+    quickSort(arr,n);
 
     show(arr,n);
 
 }
+
