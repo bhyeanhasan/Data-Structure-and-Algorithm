@@ -2,10 +2,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void Delete( string arr[8],string name,int n)
+void Delete( string arr[],string name,int n)
 {
     int place;
-    for(int i=0;i<n;i++)
+    for(int i=0; i<n; i++)
     {
         if (arr[i] == name)
         {
@@ -14,15 +14,30 @@ void Delete( string arr[8],string name,int n)
         }
     }
 
-    for(int i=place;i>n;i++)
+    for(int i=place; i<n; i++)
     {
         arr[i] = arr[i+1];
     }
 }
 
+void add(string arr[],string name, int n)
+{
+    arr[n] = name;
+
+    for(int i=0; i<n; i++)
+    {
+        if(arr[i][0] > arr[i+1][0])
+        {
+            string temp = arr[i];
+            arr[i] = arr[i+1];
+            arr[i+1] = temp;
+        }
+    }
+}
+
 void show(string arr[],int n)
 {
-    for(int i=0;i<n;i++)
+    for(int i=0; i<n; i++)
     {
         cout<<arr[i]<<" ";
     }
@@ -30,9 +45,16 @@ void show(string arr[],int n)
 
 int main()
 {
-     string arr[8] = {"Brown","Davis","Johnson","Smith","Wanger"};
-     Delete(arr,"Davis",8);
+    string arr[8] = {"Brown","Davis","Johnson","Smith","Wanger"};
 
-    show(arr,9);
+    int n=5;
+
+    add(arr,"Ford",n);
+    n++;
+    add(arr,"Taylor",n);
+
+    Delete(arr,"Davis",n);
+
+    show(arr,n);
 
 }
