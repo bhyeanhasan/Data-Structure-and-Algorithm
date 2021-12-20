@@ -3,6 +3,7 @@ using namespace std;
 
 int top = -1;
 
+
 void push(char arr[],char key)
 {
     top++;
@@ -20,12 +21,12 @@ int check(char Stack[],char arr[])
     int length = strlen(arr);
     int mid = length/2;
 
-    for(int i=0;i<mid;i++)
+    for(int i=0;i<length;i++)
     {
-        push(Stack,arr[i]);
+        push(Stack,arr[i]); //মাঝের আগ পর্যন্ত স্ট্যাকে ঢুকবে
     }
 
-    for(int i=mid+1;i<length;i++)
+    for(int i=0;i<length;i++)
     {
         if (pop(Stack) != arr[i])
         {
@@ -39,7 +40,7 @@ int check(char Stack[],char arr[])
 int main()
 {
     char Stack[1000];
-    int is =check(Stack,"noyon");
+    int is =check(Stack,"nonon");
     if(is == -1)
         cout<<"False";
     else
