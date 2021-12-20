@@ -2,7 +2,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void Delete( string arr[],string name,int n)
+string arr[8] = {"Brown","Davis","Johnson","Smith","Wanger"};
+int n=4;
+
+void Delete( string arr[],string name)
 {
     int place;
     for(int i=0; i<n; i++)
@@ -18,49 +21,52 @@ void Delete( string arr[],string name,int n)
     {
         arr[i] = arr[i+1];
     }
+    n--;
 }
 
-void add(string arr[],string name, int n)
+void add(string name)
 {
-    arr[n] = name;
+    n++;
+    arr[n]=name;
 
-    for(int i=0; i<n; i++)
+    for(int i=0; i<=n; i++)
     {
-        if(arr[i][0] > arr[i+1][0])
+        for(int j=0; j<=n; j++)
         {
-            string temp = arr[i];
-            arr[i] = arr[i+1];
-            arr[i+1] = temp;
+            if(int(arr[i][0]) < int(arr[j][0]))
+            {
+
+                string temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
         }
+
     }
+
 }
 
-void show(string arr[],int n)
+void show(string arr[])
 {
-    for(int i=0; i<n; i++)
+    for(int i=0; i<=n; i++)
     {
         cout<<arr[i]<<" ";
     }
+
     cout<<endl;
 }
 
 
 int main()
 {
-    string arr[8] = {"Brown","Davis","Johnson","Smith","Wanger"};
+    show(arr);
+    add("Ford");
+    add("Taylor");
 
-    int n=5;
+    show(arr);
 
-    show(arr,n);
+    Delete(arr,"Davis");
 
-    add(arr,"Ford",n);
-    n++;
-    add(arr,"Taylor",n);
-
-    show(arr,n);
-
-    Delete(arr,"Davis",n);
-
-    show(arr,n);
+    show(arr);
 
 }
