@@ -41,7 +41,9 @@ void show(string arr[],int n)
     {
         cout<<arr[i]<<" ";
     }
+    cout<<endl;
 }
+
 
 int main()
 {
@@ -49,9 +51,13 @@ int main()
 
     int n=5;
 
+    show(arr,n);
+
     add(arr,"Ford",n);
     n++;
     add(arr,"Taylor",n);
+
+    show(arr,n);
 
     Delete(arr,"Davis",n);
 
