@@ -3,6 +3,7 @@ using namespace std;
 
 int top = -1;
 
+
 void push(char arr[],char key)
 {
     top++;
@@ -20,19 +21,13 @@ int check(char Stack[],char arr[])
     int length = strlen(arr);
     int mid = length/2;
 
-
-
-    for(int i=0;i<mid+(length%2);i++)
+    for(int i=0;i<length;i++)
     {
-        cout<<arr[i]<<" ";
         push(Stack,arr[i]); //মাঝের আগ পর্যন্ত স্ট্যাকে ঢুকবে
     }
 
-    cout<<endl;
-
-    for(int i=mid;i<length;i++)
+    for(int i=0;i<length;i++)
     {
-        cout<<arr[i]<<endl;
         if (pop(Stack) != arr[i])
         {
             return -1;
