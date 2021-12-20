@@ -41,7 +41,8 @@ class bsTree{
                     ptr = ptr.right;
                 }
             }
-            if(val > parent.data){
+            if(val > parent.data)
+            {
                 parent.right = New;
             }
             else
@@ -51,6 +52,8 @@ class bsTree{
         }
         
     }
+    
+
     
     void preorder(treeNode node){
         if(node == null)
