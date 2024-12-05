@@ -2,14 +2,6 @@
 *  3rd Semester Sessional- 2021
 *  Job Interview Preparation
 
-## Table of Contents
-* ### [Bit Manipulation](#bit-manipulation)
-
-
-
-
-
-
 
 
 
